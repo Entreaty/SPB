@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="StarterApp">
+<head lang="ru">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Индивидуальные экскурсии СПБ</title>
+
+    <!-- Angulars Material CSS using RawGit to load directly from `bower-material/master` -->
+    <link rel="stylesheet" href="https://rawgit.com/angular/bower-material/master/angular-material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="main.css">
+
+    <!--Начало Добавленное из описания экскурсий-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet prefetch' href='vality.min.css'>
+    <link rel="stylesheet" href="css/style.css">
+    <!--Конец Добавленное из описания экскурсий-->
+</head>
+<body layout="column" ng-controller="AppCtrl" ng-cloak>
+<md-toolbar layout="row">
+
+    <button class="menuBtn" ng-click="openLeftMenu()" hide-gt-md>
+        <span class="visuallyhidden"></span>
+    </button>
+
+    <span class="md-toolbar-tools md-body-2" flex="50%">
+        Индивидуальные экскурсии
+    </span>
+
+    <md-button hide-sm hide-md >
+        <span class="md-toolbar-tools md-body-2"> О нас</span>
+    </md-button>
+
+    <md-button  hide-sm hide-md>
+        Контакты
+    </md-button>
+
+    <md-button  hide-sm hide-md>
+        Заказать &#10003;
+    </md-button>
+
+
+</md-toolbar>
+<div layout="row" flex class="content-wrapper">
+
+    <md-sidenav  layout="column" md-component-id="left" class="md-sidenav-left md-whiteframe-z2">
+    <!--<md-content>-->
+        <md-button class="md-raised md-primary">Заказать &#10003;</md-button>
+        <md-button class="selected">Контакты</md-button>
+        <md-button class="selected">О нас</md-button>
+        <md-button class="selected">Обратная связь</md-button>
+    <!--</md-content>-->
+    </md-sidenav>
+
+    <md-content md-scroll-y flex>
+        <div layout="column" layout-fill>
+            <i class="fa fa-angle-down fa-5x"></i>
+            <!--<div ng-include src="'lalala.html'"></div>-->
+            <img class="md-card-image" alt="Washed Out" src="img/spb/1.jpg">
+
+            <div class="u-wideWrapper u-paddingHm u-paddingTl" ng-controller="AppCtrl">
+
+                <div class="Grid Grid--gutters md-Grid--2col">
+                    <div class="Grid-cell u-marginBl">
+                        <h4 class="u-marginVm">Works with (or without) ng-repeat</h4>
+
+                        <v-accordion class="vAccordion--default" control="accordionA" onexpand="expandCallback(index)"
+                                     oncollapse="collapseCallback(index)">
+
+                            <v-pane ng-repeat="pane in panes" expanded="$last">
+                                <v-pane-header id="pane0{{$index}}-header" aria-controls="pane0{{$index}}-content">
+                                    <h5>{{ pane.header }}</h5>
+                                </v-pane-header>
+
+                                <v-pane-content id="pane0{{$index}}-content" aria-labelledby="pane0{{$index}}-header">
+                                    <p>{{ pane.content }}</p>
+
+                                    <v-accordion ng-if="pane.subpanes">
+                                        <v-pane ng-repeat="subpane in pane.subpanes">
+                                            <v-pane-header id="pane1{{$index}}-header"
+                                                           aria-controls="pane1{{$index}}-content">
+                                                <h5>{{ subpane.header }}</h5>
+                                            </v-pane-header>
+                                            <v-pane-content id="pane1{{$index}}-content"
+                                                            aria-labelledby="pane1{{$index}}-header">
+                                                <p>{{ subpane.content }}</p>
+                                            </v-pane-content>
+                                        </v-pane>
+                                    </v-accordion>
+                                </v-pane-content>
+                            </v-pane>
+
+                        </v-accordion>
+                        <md-toolbar1 layout="row" layout-align-gt-sm="center">
+                            <div class="ButtonGroup-item">
+                                <!--<button class="Button Button--default" ng-click="accordionA.toggle(0)">Toogle first-->
+                                <!--</button>-->
+                                <!--<button class="Button Button--default" ng-click="accordionA.toggle(panes.length - 1)">-->
+                                <!--Toogle last-->
+                                <!--</button>-->
+                                <button class="Button Button--default" ng-click="accordionA.collapseAll()">Collapse
+                                    all
+                                </button>
+                            </div>
+                        </md-toolbar1>
+                    </div>
+                </div>
+
+            </div>
+            <img class="md-card-image" alt="Washed Out" src="img/spb/2.jpg">
+            <img class="md-card-image" alt="Washed Out" src="img/spb/3.jpg">
+            <img class="md-card-image" alt="Washed Out" src="img/spb/4.jpg">
+            <img class="md-card-image" alt="Washed Out" src="img/spb/5.jpg">
+        </div>
+    </md-content>
+</div>
+<!-- Angular Material Dependencies -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.js"></script>
+<script src='http://lukaszwatroba.github.io/v-accordion/dist/v-accordion.js'></script>
+<!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
+<script src="https://rawgit.com/angular/bower-material/master/angular-material.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
